@@ -1,0 +1,74 @@
+﻿@model IEnumerable<WebApp.Models.ProdutoViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecoUnitarioCompra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecoUnitarioVenda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataAtualizacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCategoria)
+        </th>
+        <th></th>
+    </tr>
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecoUnitarioCompra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecoUnitarioVenda)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataAtualizacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdCategoria)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+    }
+}
+
+</table>
